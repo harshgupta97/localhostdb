@@ -5,10 +5,7 @@ import config from "./config/db.configuration";
 import Logger from './utility/logger.winston';
 import cors from "cors";
 import DBController from "./db/db.controller";
-import fs from "fs";
 import DBException from './db/db.exception';
-var install = require.resolve('../install.bat');
-var child_process = require('child_process');
 
 class App {
     private app: express.Application;
@@ -26,33 +23,7 @@ class App {
         return console.log(chalk.green(figlet.textSync(this.appTitle, { horizontalLayout: "full" })));
     }
 
-    private check() {
-        try {
-            if (fs.existsSync("./node_modules")) {
-                console.log("Prerequisite check passed.");
-            } else {
-                console.log("Something is missing");
-                this.installMissing();
-            }
-        } catch (e) {
-            console.log("An error occurred.")
-        }
-    }
-
-    private installMissing() {
-        child_process.exec(install, function (error: any, stdout: any, stderr: any) {
-            if (error) {
-                console.log(error);
-            } else if (stdout) {
-                console.log(stdout);
-            } else {
-                console.log(stderr)
-            }
-        });
-    }
-
     private init() {
-        this.check();
         this.app.enable("trust proxy");
         this.app.use(cors());
         this.app.use(express.json());
