@@ -5,8 +5,9 @@
   "main": "db.js",
   "scripts": {
     "build": "tsc -p .",
+    "dist": "dist.bat",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db": "nodemon"
+    "dev": "nodemon"
   },
   "keywords": [
     "nedb",
