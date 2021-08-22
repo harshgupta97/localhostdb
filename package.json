@@ -1,6 +1,6 @@
 {
   "name": "localhostdb",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.0",
   "description": "Locally hosted db engine, for persistance data storage using express and nedb",
   "main": "db.js",
   "scripts": {
