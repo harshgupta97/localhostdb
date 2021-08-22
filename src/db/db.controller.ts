@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import Logger from "../utility/logger.winston";
 import DBService from "./db.service";
+import path from "path";
 
 export interface IController {
     path: string;
@@ -17,9 +18,14 @@ class DBController implements IController {
     }
 
     public initRoutes(): any {
-        this.router.get(`${this.path}`, this.healthCheck);
-        this.router.head(`${this.path}`, this.healthCheck);
+        this.router.get(`${this.path}`, this.welcome);
+        this.router.get(`${this.path}/health`, this.healthCheck);
+        this.router.head(`${this.path}/health`, this.healthCheck);
         this.router.post(`${this.path}`, this.database);
+    }
+
+    private welcome = (request: Request, response: Response) => {
+        response.sendFile(path.join(__dirname, '/welcome.html'));
     }
 
     private healthCheck = (request: Request, response: Response) => {
