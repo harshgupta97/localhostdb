@@ -1,6 +1,6 @@
-# DB Engine
+# LocalhostDB
 
-DB engine for persistance and in-memory data storage using [express](https://expressjs.com/) and [nedb](https://github.com/louischatriot/nedb), desktop application built using electron is a can leverage this to storage data locally.
+DB server for persistance and in-memory data storage using [express](https://expressjs.com/) and [nedb](https://github.com/louischatriot/nedb), desktop application built using electron can leverage this to storage data locally.
 
 ## Dev Commands
 
@@ -39,7 +39,7 @@ npm run clean
 ## Things to keep in mind
 
 - Update the dist.bat file as per your requirement.
-- Same thing with db.configuration file, Set the
+- Same thing with db.configuration file, Change it as per you requirement
 
 ## End User
 
@@ -47,4 +47,8 @@ npm run clean
 
 2. Unzip the localhostdb.zip
 
-3. Open the folder and click run.bat
+3. Open the localhostdb folder and click run.bat
+
+## Verify installation
+
+Open up a browser and goto http://localhost:3001/storage
